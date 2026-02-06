@@ -204,14 +204,13 @@ return new class extends Migration {
                 $table->unsignedBigInteger('zone_id')->nullable();
                 $table->unsignedBigInteger('module_id');
                 $table->unsignedBigInteger('parcel_catgory_id')->nullable();
-                $table->double('dm_tips', 24, 2)->default(0);
+                // Excluded: dm_tips (added by 2022_05_14 migration)
                 $table->double('delivery_fee_comission', 24, 2)->default(0);
                 $table->decimal('admin_expense', 23, 3)->default(0);
                 $table->double('store_expense', 23, 3)->default(0);
                 $table->double('discount_amount_by_store', 23, 3)->default(0);
                 $table->double('additional_charge', 23, 3)->default(0);
-                $table->double('extra_packaging_amount', 23, 3)->default(0);
-                $table->double('ref_bonus_amount', 23, 3)->default(0);
+                // Excluded: extra_packaging_amount, ref_bonus_amount
                 $table->double('commission_percentage', 16, 3)->default(0);
                 $table->tinyInteger('is_subscribed')->default(0);
             });
