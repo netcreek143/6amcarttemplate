@@ -122,28 +122,14 @@ return new class extends Migration {
                 // Excluded: free_delivery_by (added by 2022_07_31 migration)
                 $table->timestamp('refund_request_canceled')->nullable();
                 // Excluded: prescription_order, tax_status (added by later migrations)
+                // Excluded: prescription_order, tax_status (added by later migrations)
                 $table->unsignedBigInteger('dm_vehicle_id')->nullable();
-                $table->string('cancellation_reason', 255)->nullable();
-                $table->string('canceled_by', 50)->nullable();
-                $table->string('coupon_created_by', 50)->nullable();
-                $table->string('discount_on_product_by', 50)->default('vendor');
-                $table->string('processing_time', 10)->nullable();
-                $table->string('unavailable_item_note', 255)->nullable();
-                $table->tinyInteger('cutlery')->default(0);
-                $table->text('delivery_instruction')->nullable();
-                $table->double('tax_percentage', 24, 3)->nullable();
-                $table->double('additional_charge', 23, 3)->default(0);
-                $table->text('order_proof')->nullable();
-                $table->double('partially_paid_amount', 23, 3)->default(0);
-                $table->tinyInteger('is_guest')->default(0);
-                $table->double('flash_admin_discount_amount', 24, 3)->default(0);
-                $table->double('flash_store_discount_amount', 24, 3)->default(0);
-                $table->unsignedBigInteger('cash_back_id')->nullable();
-                $table->double('extra_packaging_amount', 23, 3)->default(0);
-                $table->double('ref_bonus_amount', 23, 3)->default(0);
-                $table->string('tax_type', 255)->nullable();
-                $table->integer('bring_change_amount')->default(0);
-                $table->text('cancellation_note')->nullable();
+                // Excluded: cancellation_reason, canceled_by, coupon_created_by, discount_on_product_by
+                // Excluded: processing_time, unavailable_item_note, cutlery, delivery_instruction
+                // Excluded: tax_percentage, additional_charge, order_proof, partially_paid_amount
+                // Excluded: is_guest, flash_admin_discount_amount, flash_store_discount_amount
+                // Excluded: cash_back_id, extra_packaging_amount, ref_bonus_amount
+                // Excluded: tax_type, bring_change_amount, cancellation_note
             });
         }
 
