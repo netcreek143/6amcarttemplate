@@ -8,6 +8,18 @@ if [ -n "$PORT" ]; then
 fi
 
 # Run Migrations (Force is needed for production env)
+# Run Migrations (Force is needed for production env)
+echo "⏳ Waiting for Database connection..."
+# Wait for the database to be ready (retry for 30 seconds)
+for i in {1..30}; do
+    if php artisan db:monitor > /dev/null 2>&1; then
+        echo "✅ Database connection established!"
+        break
+    fi
+    echo "Waiting for database..."
+    sleep 2
+done
+
 echo "🚀 Running database migrations..."
 php artisan migrate --force
 
