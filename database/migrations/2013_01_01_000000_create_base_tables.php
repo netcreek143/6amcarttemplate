@@ -151,9 +151,7 @@ return new class extends Migration {
                 $table->string('account_no', 255)->nullable();
                 $table->string('image', 255)->nullable();
                 $table->tinyInteger('status')->default(1);
-                $table->string('firebase_token', 255)->nullable();
-                $table->string('auth_token', 255)->nullable();
-                $table->string('login_remember_token', 255)->nullable();
+                // Excluded: firebase_token, auth_token, login_remember_token
             });
         }
 
@@ -225,8 +223,7 @@ return new class extends Migration {
                 $table->integer('orders_count')->default(0);
                 $table->unsignedBigInteger('module_id');
                 $table->timestamps();
-                $table->double('parcel_per_km_shipping_charge', 23, 2)->nullable();
-                $table->double('parcel_minimum_shipping_charge', 23, 2)->nullable();
+                // Excluded: parcel_per_km_shipping_charge, parcel_minimum_shipping_charge
             });
         }
 
@@ -263,11 +260,10 @@ return new class extends Migration {
                 $table->string('password', 100);
                 $table->tinyInteger('status')->default(1);
                 $table->rememberToken();
-                $table->string('firebase_token', 255)->nullable();
-                $table->string('auth_token', 255)->nullable();
+                // Excluded: firebase_token, auth_token (added by later migrations)
                 $table->timestamps();
                 $table->tinyInteger('is_logged_in')->default(1);
-                $table->string('login_remember_token', 255)->nullable();
+                // Excluded: login_remember_token
             });
         }
 
@@ -280,7 +276,7 @@ return new class extends Migration {
                 $table->timestamps();
                 $table->unsignedBigInteger('store_id');
                 $table->tinyInteger('status')->default(1);
-                $table->unsignedBigInteger('addon_category_id')->nullable();
+                // Excluded: addon_category_id (added by later migration)
             });
         }
 
@@ -303,10 +299,8 @@ return new class extends Migration {
                 $table->unsignedBigInteger('zone_id');
                 $table->double('per_km_shipping_charge', 23, 2)->nullable();
                 $table->double('minimum_shipping_charge', 23, 2)->nullable();
-                $table->double('maximum_cod_order_amount', 23, 2)->nullable();
-                $table->double('maximum_shipping_charge', 23, 2)->nullable();
+                // Excluded: maximum_cod_order_amount, maximum_shipping_charge, fixed_shipping_charge
                 $table->enum('delivery_charge_type', ['fixed', 'distance'])->default('distance');
-                $table->double('fixed_shipping_charge', 23, 2)->nullable();
             });
         }
 
