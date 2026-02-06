@@ -9,14 +9,14 @@ fi
 
 # Run Migrations (Force is needed for production env)
 # Run Migrations (Force is needed for production env)
-echo "⏳ Waiting for Database connection..."
+echo "⏳ Waiting for Database connection to $DB_HOST:$DB_PORT..."
 # Wait for the database to be ready (retry for 30 seconds)
 for i in {1..30}; do
-    if php artisan db:monitor > /dev/null 2>&1; then
+    if php artisan db:monitor; then
         echo "✅ Database connection established!"
         break
     fi
-    echo "Waiting for database..."
+    echo "⚠️ Connection failed. Retrying in 2s..."
     sleep 2
 done
 
