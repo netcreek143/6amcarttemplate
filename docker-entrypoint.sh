@@ -2,7 +2,10 @@
 set -e
 
 # Update Apache port to match Render's $PORT
-sed -i "s/80/$PORT/g" /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
+# Update Apache port to match Render's $PORT
+if [ -n "$PORT" ]; then
+    sed -i "s/80/$PORT/g" /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
+fi
 
 # Run Migrations (Force is needed for production env)
 echo "🚀 Running database migrations..."
