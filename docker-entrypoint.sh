@@ -9,6 +9,11 @@ fi
 
 # Run Migrations (Force is needed for production env)
 # Run Migrations (Force is needed for production env)
+# Run Migrations (Force is needed for production env)
+echo "🔍 DEBUG: DB_HOST='$DB_HOST'"
+echo "🔍 DEBUG: DB_PORT='$DB_PORT'"
+echo "🔍 DEBUG: DB_DATABASE='$DB_DATABASE'"
+
 echo "⏳ Waiting for Database connection to $DB_HOST:$DB_PORT..."
 # Wait for the database to be ready (retry for 30 seconds)
 for i in {1..30}; do
