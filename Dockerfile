@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
+    libicu-dev \
     git \
     curl \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
