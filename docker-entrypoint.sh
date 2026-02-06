@@ -11,8 +11,13 @@ fi
 # Run Migrations (Force is needed for production env)
 # Run Migrations (Force is needed for production env)
 echo "🔍 DEBUG: DB_HOST='$DB_HOST'"
+echo "🔍 DEBUG: DB_HOST='$DB_HOST'"
 echo "🔍 DEBUG: DB_PORT='$DB_PORT'"
 echo "🔍 DEBUG: DB_DATABASE='$DB_DATABASE'"
+
+# Network Check
+echo "🔍 DEBUG: Checking DNS resolution for $DB_HOST..."
+getent hosts "$DB_HOST" || echo "❌ DNS Resolution FAILED for '$DB_HOST'"
 
 echo "⏳ Waiting for Database connection to $DB_HOST:$DB_PORT..."
 # Wait for the database to be ready (retry for 30 seconds)
